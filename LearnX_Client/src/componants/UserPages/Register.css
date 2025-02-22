@@ -1,0 +1,149 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+.container-fuild{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.register-container {
+    width: 80%;
+    display: flex;
+   height: 80%;
+    background: #f0f2f5;
+}
+
+.register-left {
+    flex: 1;
+    background: linear-gradient(to bottom, #002e6e, #1976d2);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+
+    .register-logo img {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 10px;
+
+        a {
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+            border-bottom: 1px solid white;
+        }
+    }
+}
+
+
+.register-right {
+    flex: 1;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-container {
+        width: 80%;
+        max-width: 350px;
+        text-align: center;
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .register-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            gap: 5px;
+
+            a {
+                color: #1976d2;
+                text-decoration: none;
+            }
+        }
+
+        .register-button {
+            background: #1976d2;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .already-account {
+            font-size: 14px;
+            margin-top: 10px;
+
+            a {
+                color: #1976d2;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+    }
+
+    .register-left {
+        flex: none;
+        height: 40vh;
+        padding: 1rem;
+    }
+
+    .register-right {
+        flex: none;
+        height: 60vh;
+        padding: 1rem;
+    }
+}

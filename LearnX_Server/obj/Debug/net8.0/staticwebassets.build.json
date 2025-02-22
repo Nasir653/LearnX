@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "HKKsXYjyXAmwd1p3NCWVmvxHpZgvN19vhFSQHl61c6k=",
+  "Source": "LearnX_Server",
+  "BasePath": "_content/LearnX_Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LearnX_Server.props" />
+</Project>

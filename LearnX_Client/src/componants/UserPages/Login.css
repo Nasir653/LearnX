@@ -1,0 +1,149 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+.login-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.login-container {
+    display: flex;
+
+    background: #f8f9fa;
+    height: 80%;
+}
+
+
+.login-left {
+    flex: 1;
+    background: linear-gradient(to bottom, #003c8f, #1e88e5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+
+    .login-logo img {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 10px;
+
+        a {
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+            border-bottom: 1px solid white;
+        }
+    }
+}
+
+
+.login-right {
+    flex: 1;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-container {
+        width: 80%;
+        max-width: 350px;
+        text-align: center;
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            gap: 5px;
+
+            a {
+                color: #1e88e5;
+                text-decoration: none;
+            }
+        }
+
+        .sign-up-button {
+            background: #1e88e5;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sign-in-button {
+            background: none;
+            color: #1e88e5;
+            border: 1px solid #1e88e5;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-left {
+        flex: none;
+        
+        padding: 1rem;
+    }
+
+    .login-right {
+        flex: none;
+      
+        padding: 1rem;
+    }
+}
