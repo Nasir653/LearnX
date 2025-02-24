@@ -19,6 +19,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("Sql")));
 builder.Services.AddSingleton<ITokenService, TokenService>();
 builder.Services.AddSingleton<IMailService, MailService>();
 builder.Services.AddScoped<IMessageHandler, MessageHandler>();
+builder.Services.AddSingleton<ICloudnaryServices, CloudnaryServices>();
 
 
 
@@ -26,9 +27,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin() // Allow all origins
-              .AllowAnyHeader() // Allow any headers
-              .AllowAnyMethod(); // Allow any methods (GET, POST, etc.)
+        policy.WithOrigins("http://localhost:5173") // React frontend URL
+             .AllowCredentials() // Allow cookies
+             .AllowAnyHeader() // Allow headers
+             .AllowAnyMethod(); // Allow all methods
 
     });
 });

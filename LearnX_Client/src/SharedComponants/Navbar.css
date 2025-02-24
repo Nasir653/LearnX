@@ -1,0 +1,107 @@
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: right 0.4s ease-in-out;
+}
+
+.nav-links li {
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: black;
+}
+
+.nav-links li:hover {
+    color: #20b486;
+    transform: scale(1.05);
+}
+
+/* Apply Button */
+.apply-btn {
+    padding: 10px 20px;
+    background: #ff7b7b;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.apply-btn:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+/* Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: -100%;
+        background: white;
+        width: 200px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease-in-out;
+    }
+
+    .nav-links.open {
+        right: 0;
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .apply-btn {
+        display: none;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        right: -200px;
+    }
+
+    to {
+        right: 0;
+    }
+}

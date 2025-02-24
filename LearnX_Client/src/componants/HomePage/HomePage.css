@@ -1,0 +1,141 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Main Page Background */
+.homepage_main {
+    height: 200vh;
+    background: linear-gradient(135deg, #f2f8f9, #ffe7eb);
+}
+
+
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #f2f8f9, #ffe7eb);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSmooth 1s ease-in-out forwards;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.hero-content .subtext {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-primary {
+    background: #ff7b7b;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: black;
+    border: 2px solid black;
+}
+
+.btn-secondary:hover {
+    background: black;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Hero Image */
+.hero-image {
+    max-width: 45%;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 10px;
+    animation: zoomIn 1.2s ease-in-out forwards;
+}
+
+/* Categories Section */
+.categories-section {
+    text-align: center;
+    padding: 60px 10%;
+    background: #f9f9f9;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+.section-title {
+    color: #20b486;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.section-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        max-width: 80%;
+        margin-top: 20px;
+    }
+}
+

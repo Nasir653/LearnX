@@ -1,0 +1,150 @@
+.navbar-white {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Logo */
+.logo-white {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+/* 📌 Search Bar */
+.search-bar-white {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 250px;
+    gap: 5px;
+}
+
+.search-bar-white input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-bar-white button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.search-bar-white button:hover {
+    color: #20b486;
+}
+
+/* Navigation Links */
+.nav-links-white {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: right 0.4s ease-in-out;
+}
+
+.nav-links-white li {
+    cursor: pointer;
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-links-white li:hover {
+    color: #20b486;
+    transform: scale(1.05);
+}
+
+/* Apply Button */
+.apply-btn-white {
+    padding: 10px 20px;
+    background: #ff7b7b;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.apply-btn-white:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+/* Menu Icon */
+.menu-icon-white {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* 📌 Responsive Design */
+@media screen and (max-width: 1024px) {
+    .search-bar-white {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links-white {
+        position: absolute;
+        top: 60px;
+        right: -100%;
+        background: white;
+        width: 200px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease-in-out;
+        display: flex;
+    }
+
+    .nav-links-white.open {
+        right: 0;
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+    .search-bar-white {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .menu-icon-white {
+        display: block;
+    }
+
+    .apply-btn-white {
+        display: none;
+    }
+}
+
+/* Mobile Menu Animation */
+@keyframes slideIn {
+    from {
+        right: -200px;
+    }
+
+    to {
+        right: 0;
+    }
+}

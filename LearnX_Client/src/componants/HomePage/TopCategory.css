@@ -1,0 +1,99 @@
+/* Category Section */
+.categories-section {
+    text-align: center;
+    padding: 60px 10%;
+    background: linear-gradient(135deg, #e3fdfd, #ffe6fa);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.categories-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Titles */
+.section-title {
+    color: #20b486;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.section-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Category Grid */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Category Cards */
+.category-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.3s ease-in-out;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.category-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #fef3f3, #ffe3e3);
+}
+
+/* Icon */
+.icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* View All Button */
+.view-all-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.view-all-btn:hover {
+    background: #d43f3f;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInSmooth {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

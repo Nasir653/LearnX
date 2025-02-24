@@ -5,17 +5,17 @@ interface stateTypes {
   loading : boolean,
   message : string,
   payload : any
-  blogs : any
+ 
 }
 
-const userIntialState : stateTypes= { 
+const IntialState : stateTypes= { 
   loading: false,
   message: "",
   payload: {},
-  blogs : []
+
 };
 
-export const userReducer = createReducer(userIntialState, (builder : any): void => {
+export const userReducer = createReducer(IntialState, (builder : any): void => {
   builder
     .addCase("API_REQUEST", (state : stateTypes) => {
       state.loading = true;
@@ -24,17 +24,13 @@ export const userReducer = createReducer(userIntialState, (builder : any): void 
       state.loading = false
       state.message = action.message
       state.payload = action.payload;
+      console.log(action);
+        localStorage.setItem("userPayload", JSON.stringify(action.payload));
       
-      
-    })
-    .addCase("FETCH_BLOGS_SUCCESS" ,(state : stateTypes , action : stateTypes)=>{
-      state.loading = false
-      state.message = action.message
-      state.blogs = action.payload;
     })
     .addCase("API_FAILURE", (state :stateTypes,  action : stateTypes) => {
       state.loading = false;
-      state.message = action.message;
+      state.message = action.message;                                                       
     })
     .addCase("CLEAR_MESSAGE" , (state :stateTypes)=>{
 
@@ -42,3 +38,33 @@ export const userReducer = createReducer(userIntialState, (builder : any): void 
 
     })
 });
+
+interface CourseAction {
+
+  loading : boolean,
+  message : string,
+  payload : any
+ 
+}
+
+
+
+export const CourseReducer = createReducer(IntialState, (builder :any) => {
+  builder
+    .addCase("COURSE_API_REQUEST", (state : stateTypes) => {
+      state.loading = true;
+    })
+    .addCase("COURSE_API_SUCCESS", (state :stateTypes, action : CourseAction ) => {
+      state.loading = false;
+      state.message = action.message;
+      state.payload = action.payload;
+    })
+    .addCase("COURSE_API_FAILURE", (state : stateTypes, action : stateTypes) => {
+      state.loading = false;
+      state.message = action.message;
+    })
+    .addCase("CLEAR_MESSAGE", (state : stateTypes) => {
+      state.message = "";
+    });
+});
+ 

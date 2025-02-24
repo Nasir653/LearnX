@@ -7,13 +7,15 @@ using LearnX_Server.Data;
 using LearnX_Server.Models;
 using LearnX_Server.Models.ViewModels;
 using LearnX_Server.Interfaces;
+using LearnX_Server.Services;
+using System.Diagnostics;
 
 
 namespace LearnX_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController(DbConnection dbContext, ITokenService tokenService, IMailService Mail,IMessageHandler message) : ControllerBase
+    public class UserController(DbConnection dbContext, ITokenService tokenService, IMailService Mail, IMessageHandler message) : ControllerBase
     {
         private readonly DbConnection _dbContext = dbContext;
         private readonly IMailService _Mail = Mail;
@@ -69,44 +71,100 @@ namespace LearnX_Server.Controllers
 
         }
 
-          
+
         [HttpPost("Login")]
         public IActionResult Login([FromBody] Login login)
         {
-
-            if (login.Email == "" || login.Password == "")
+            try
             {
-                return _message.ErrorMessage(404, "All Crendentials Required");
+                if (login.Email == "" || login.Password == "")
+                {
+                    return _message.ErrorMessage(404, "All Crendentials Required");
+                }
+
+                var FindUser = _dbContext.Users.FirstOrDefault(x => x.Email == login.Email);
+
+
+                if (FindUser == null)
+                {
+
+                    return _message.ErrorMessage(404, "Incorrect Email");
+                }
+
+                var Verifypass = BCrypt.Net.BCrypt.Verify(login.Password, FindUser.Password);
+                if (!Verifypass)
+                {
+                    return _message.ErrorMessage(404, "Incorrect Password");
+                }
+
+                var token = tokenService.CreateToken(FindUser.UserId.ToString(), FindUser.Email, FindUser.Username);
+
+
+               
+
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,  // Prevents JavaScript access
+                    Secure = true,  // Only allows HTTPS (use false for local testing)
+                    SameSite = SameSiteMode.None,  // Allows cross-origin authentication
+                    Expires = DateTime.UtcNow.AddDays(7), // Ensures persistence after relo
+                };
+
+                Response.Cookies.Append("token", token, cookieOptions);
+
+                return _message.SuccessMessage("Login Successfully", FindUser);
             }
-
-            var FindUser = _dbContext.Users.FirstOrDefault(x => x.Email == login.Email);
-
-
-            if (FindUser == null)
+            catch
             {
-
-                return _message.ErrorMessage(404, "Incorrect Email");
+                return _message.ErrorMessage(500, "Server Error");
             }
+        }
 
-            var Verifypass = BCrypt.Net.BCrypt.Verify(login.Password, FindUser.Password);
-            if (!Verifypass)
+
+        [HttpGet("Fetch/UserData")]
+        public async Task<IActionResult> FetchUserData()
+        {
+            try
             {
-                return _message.ErrorMessage(404, "Incorrect Password");
+                var token = Request.Cookies["token"];
+
+                if (string.IsNullOrEmpty(token))
+                {
+                    Console.WriteLine("🚨 No token found in cookies.");
+                    return Unauthorized(new { message = "User is not authenticated." });
+                }
+
+                Console.WriteLine("🔹 Received Token: " + token);
+
+                var userId = tokenService.VerifyTokenAndGetId(token);
+
+                Console.WriteLine("✅ Extracted User ID: " + userId);
+
+                // Check if userId is valid
+                if (userId == Guid.Empty)
+                {
+                    Console.WriteLine("🚨 Extracted User ID is empty or invalid.");
+                    return Unauthorized(new { message = "Invalid token." });
+                }
+
+                var user = await _dbContext.Users.FindAsync(userId);
+
+                if (user == null)
+                {
+                    Console.WriteLine("🚨 No user found in database for ID: " + userId);
+                    return _message.ErrorMessage(404, "User Not Found");
+                }
+
+                Console.WriteLine("✅ User Found: " + user.Email);
+
+                return _message.SuccessMessage("User Data", user);
             }
-
-            var token = tokenService.CreateToken(FindUser.UserId.ToString(), FindUser.Email, FindUser.Username);
-
-
-            var cookieOptions = new CookieOptions
+            catch (Exception ex)
             {
-                HttpOnly = true,
-                Secure = true,
-                SameSite = SameSiteMode.Strict,
-                Expires = DateTime.UtcNow.AddDays(7)
-            };
-            Response.Cookies.Append("token", token, cookieOptions);
-
-            return _message.SuccessMessage("Login Successfully", FindUser);
+                Console.WriteLine("❌ Exception: " + ex.Message);
+                Debug.WriteLine(ex);
+                return _message.ErrorMessage(500, "Server Error");
+            }
         }
 
 
@@ -187,6 +245,7 @@ namespace LearnX_Server.Controllers
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return StatusCode(500, "Server error");
             }
         }
@@ -198,7 +257,7 @@ namespace LearnX_Server.Controllers
         {
             try
             {
-                
+
                 var FindUser = await _dbContext.Users.FindAsync(UserId);
 
                 if (FindUser == null)
@@ -206,7 +265,7 @@ namespace LearnX_Server.Controllers
                     return NotFound(new { message = "User Not Found" });
                 }
 
-               
+
                 FindUser.Username = Edit.Username ?? FindUser.Username;
                 FindUser.Email = Edit.Email ?? FindUser.Email;
                 FindUser.Password = Edit.Password ?? FindUser.Password;
@@ -218,7 +277,7 @@ namespace LearnX_Server.Controllers
 
                 return Ok(new { message = "User updated successfully", user = FindUser });
             }
-                catch (Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, new { message = "Internal Server Error", error = ex.Message });
             }

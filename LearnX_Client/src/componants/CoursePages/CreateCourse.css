@@ -1,0 +1,102 @@
+.create-course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f9f9f9;
+    padding: 40px;
+    text-align: center;
+
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #007bff;
+        padding-bottom: 5px;
+        display: inline-block;
+    }
+
+    .course-form {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        animation: fadeIn 1s ease-in-out;
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+
+            &:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        select {
+            cursor: pointer;
+            background: white;
+        }
+
+        .preview {
+            margin-top: 10px;
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        .submit-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background: #0056b3;
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

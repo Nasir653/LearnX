@@ -17,7 +17,7 @@ namespace LearnX_Server.Models.ViewModels
 
         public required decimal Price { get; set; }   // Price of the course
 
-        public string? Image { get; set; }    // Optional: URL for course image
+        public IFormFile? Image { get; set; }    // Optional: URL for course image
 
         public List<Lesson>? Lessons { get; set; }    // Lessons in this course
         public Guid? LessonId { get; set; }    // Lessons in this course

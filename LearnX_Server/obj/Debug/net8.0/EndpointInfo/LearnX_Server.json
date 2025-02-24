@@ -12,19 +12,127 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CourseModel"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CourseModel"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CourseModel"
+                "required": [
+                  "Category",
+                  "Price",
+                  "Title"
+                ],
+                "type": "object",
+                "properties": {
+                  "CourseId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "InstructorId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Lessons": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Lesson"
+                    }
+                  },
+                  "LessonId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Level": {
+                    "type": "string"
+                  },
+                  "Rating": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Reviews": {
+                    "type": "string"
+                  },
+                  "TotalEnrollments": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "UpdatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "images": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "CourseId": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "InstructorId": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "Lessons": {
+                  "style": "form"
+                },
+                "LessonId": {
+                  "style": "form"
+                },
+                "Category": {
+                  "style": "form"
+                },
+                "Level": {
+                  "style": "form"
+                },
+                "Rating": {
+                  "style": "form"
+                },
+                "Reviews": {
+                  "style": "form"
+                },
+                "TotalEnrollments": {
+                  "style": "form"
+                },
+                "CreatedAt": {
+                  "style": "form"
+                },
+                "UpdatedAt": {
+                  "style": "form"
+                },
+                "images": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -36,10 +144,33 @@
         }
       }
     },
-    "/api/Course/GetAllCourses": {
+    "/api/Course/get/allCourses": {
       "get": {
         "tags": [
           "Course"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Course/get/CourseById/{CourseId}": {
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "parameters": [
+          {
+            "name": "CourseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -103,6 +234,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/Fetch/UserData": {
+      "get": {
+        "tags": [
+          "User"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -280,84 +423,6 @@
             "items": {
               "$ref": "#/components/schemas/Lesson"
             },
-            "nullable": true
-          },
-          "category": {
-            "type": "string",
-            "nullable": true
-          },
-          "level": {
-            "type": "string",
-            "nullable": true
-          },
-          "rating": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "reviews": {
-            "type": "string",
-            "nullable": true
-          },
-          "totalEnrollments": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CourseModel": {
-        "required": [
-          "category",
-          "price",
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "courseId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "instructorId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "image": {
-            "type": "string",
-            "nullable": true
-          },
-          "lessons": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Lesson"
-            },
-            "nullable": true
-          },
-          "lessonId": {
-            "type": "string",
-            "format": "uuid",
             "nullable": true
           },
           "category": {

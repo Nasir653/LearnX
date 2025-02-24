@@ -173,4 +173,7 @@ D:\LearnX\LearnX_Server\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.
 D:\LearnX\LearnX_Server\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\LearnX\LearnX_Server\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\LearnX\LearnX_Server\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\LearnX\LearnX_Server\obj\Debug\net8.0\LearnX_Server.sourcelink.json
+D:\LearnX\LearnX_Server\bin\Debug\net8.0\CloudinaryDotNet.dll
+D:\LearnX\LearnX_Server\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\LearnX\LearnX_Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
