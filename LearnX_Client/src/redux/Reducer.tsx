@@ -45,9 +45,9 @@ interface CourseAction {
   message : string,
   payload : any
  
-}
+   }
 
-
+          
 
 export const CourseReducer = createReducer(IntialState, (builder :any) => {
   builder

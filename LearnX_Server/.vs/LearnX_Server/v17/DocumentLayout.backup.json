@@ -1,0 +1,200 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\LearnX\\LearnX_Server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\models\\viewmodels\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:models\\viewmodels\\lessonmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\models\\datamodels\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:models\\datamodels\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\models\\datamodels\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:models\\datamodels\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\interfaces\\icloudnaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:interfaces\\icloudnaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\services\\cloudnaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:services\\cloudnaryservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\data\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:data\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|d:\\learnx\\learnx_server\\models\\datamodels\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7EFC83D-EF58-4AC3-86AF-CB97DB2B52EF}|LearnX_Server.csproj|solutionrelative:models\\datamodels\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CloudnaryServices.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Services\\CloudnaryServices.cs",
+              "RelativeDocumentMoniker": "Services\\CloudnaryServices.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Services\\CloudnaryServices.cs",
+              "RelativeToolTip": "Services\\CloudnaryServices.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAgwFMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T12:31:52.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ICloudnaryServices.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Interfaces\\ICloudnaryServices.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICloudnaryServices.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Interfaces\\ICloudnaryServices.cs",
+              "RelativeToolTip": "Interfaces\\ICloudnaryServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T12:31:43.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lesson.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Models\\DataModels\\Lesson.cs",
+              "RelativeDocumentMoniker": "Models\\DataModels\\Lesson.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Models\\DataModels\\Lesson.cs",
+              "RelativeToolTip": "Models\\DataModels\\Lesson.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T08:32:33.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LessonModel.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Models\\ViewModels\\LessonModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\LessonModel.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Models\\ViewModels\\LessonModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\LessonModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T12:15:21.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T10:57:37.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Course.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Models\\DataModels\\Course.cs",
+              "RelativeDocumentMoniker": "Models\\DataModels\\Course.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Models\\DataModels\\Course.cs",
+              "RelativeToolTip": "Models\\DataModels\\Course.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T10:49:25.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DbConnection.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Data\\DbConnection.cs",
+              "RelativeDocumentMoniker": "Data\\DbConnection.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Data\\DbConnection.cs",
+              "RelativeToolTip": "Data\\DbConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T10:34:37.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CourseController.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "Controllers\\CourseController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAQwKcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T09:50:18.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Models\\DataModels\\User.cs",
+              "RelativeDocumentMoniker": "Models\\DataModels\\User.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Models\\DataModels\\User.cs",
+              "RelativeToolTip": "Models\\DataModels\\User.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBAAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T09:48:10.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\LearnX\\LearnX_Server\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "D:\\LearnX\\LearnX_Server\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T16:48:53.552Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

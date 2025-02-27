@@ -1,0 +1,69 @@
+.lesson-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: #f5f5f5;
+    min-height: 100vh;
+
+    >.lesson-form {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+
+        >h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        >.form-group {
+            margin-bottom: 20px;
+            text-align: left;
+
+            >label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 600;
+                color: #555;
+            }
+
+            >input {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                outline: none;
+
+                &:focus {
+                    border-color: #20b486;
+                    box-shadow: 0 0 5px rgba(32, 180, 134, 0.5);
+                }
+            }
+        }
+
+        >.submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #20b486;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: #188a6e;
+                transform: scale(1.02);
+            }
+        }
+    }
+}

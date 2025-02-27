@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { fetchUser } from "./redux/Action";
 import CourseDetails from "./componants/CoursePages/CourseDetails";
 
+
 const Layout = () => {
   const location = useLocation();
 
@@ -31,8 +32,9 @@ const Layout = () => {
           <Route path="/all/courses" element={<AllCourses />} />
           <Route path="/create/NewCourse" element={<CreateCourse />} />
           <Route path="/course/details/:CourseId" element={<CourseDetails />} />
+       
           
-
+ 
         </Routes>
       </div>
     </>

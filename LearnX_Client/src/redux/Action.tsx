@@ -43,3 +43,4 @@ export const fetchUser = () => apiInstance("/User/Fetch/UserData", "API_REQUEST"
 export const CreateNewCourse = (formData: any) => apiInstance("/Course/CreateCourse", "COURSE_API_REQUEST", "COURSE_API_SUCCESS", "COURSE_API_FAILURE", formData);
 export const getAllCourses = () => apiInstance("/Course/get/allCourses", "COURSE_API_REQUEST", "COURSE_API_SUCCESS", "COURSE_API_FAILURE");
 export const getCourseById = (courseId :any) => apiInstance(`/Course/get/CourseById/${courseId}`, "COURSE_API_REQUEST", "COURSE_API_SUCCESS", "COURSE_API_FAILURE");
+export const createLesson = (formData:any , courseId :any) => apiInstance(`/Course/CreateLessons/${courseId}`, "COURSE_API_REQUEST", "COURSE_API_SUCCESS", "COURSE_API_FAILURE", formData);

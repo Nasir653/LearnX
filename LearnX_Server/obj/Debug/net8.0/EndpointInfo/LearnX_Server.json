@@ -179,6 +179,88 @@
         }
       }
     },
+    "/api/Course/CreateLessons/{CourseId}": {
+      "post": {
+        "tags": [
+          "Course"
+        ],
+        "parameters": [
+          {
+            "name": "CourseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CourseId",
+                  "Duration",
+                  "Title",
+                  "VideoUrl"
+                ],
+                "type": "object",
+                "properties": {
+                  "LessonId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "VideoUrl": {
+                    "type": "string"
+                  },
+                  "Duration": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CourseId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "videoFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "LessonId": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "VideoUrl": {
+                  "style": "form"
+                },
+                "Duration": {
+                  "style": "form"
+                },
+                "CourseId": {
+                  "style": "form"
+                },
+                "videoFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/register": {
       "post": {
         "tags": [
@@ -395,34 +477,12 @@
             "type": "string",
             "nullable": true
           },
-          "instructorId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "instructor": {
-            "$ref": "#/components/schemas/User"
-          },
-          "enrollments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Enrollment"
-            },
-            "nullable": true
-          },
           "price": {
             "type": "number",
             "format": "double"
           },
           "image": {
             "type": "string",
-            "nullable": true
-          },
-          "lessons": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Lesson"
-            },
             "nullable": true
           },
           "category": {
@@ -454,6 +514,11 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "instructorId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -494,43 +559,6 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Enrollment": {
-        "type": "object",
-        "properties": {
-          "enrollmentId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
-          "courseId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "course": {
-            "$ref": "#/components/schemas/Course"
-          },
-          "enrollmentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "progress": {
-            "type": "number",
-            "format": "double"
-          },
-          "completed": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -641,65 +669,6 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "required": [
-          "email",
-          "password",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "type": "string",
-            "nullable": true
-          },
-          "profilePicture": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "enrollments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Enrollment"
-            },
-            "nullable": true
-          },
-          "courses": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Course"
-            },
             "nullable": true
           }
         },

@@ -1,3 +1,8 @@
+
+.whiteNavbar-container{
+    margin-bottom: 12vh;
+}
+
 .navbar-white {
     display: flex;
     justify-content: space-between;
@@ -145,6 +150,6 @@
     }
 
     to {
-        right: 0;
+        right: 0;              
     }
 }

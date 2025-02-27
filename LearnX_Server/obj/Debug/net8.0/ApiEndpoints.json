@@ -92,6 +92,52 @@
   },
   {
     "ContainingType": "LearnX_Server.Controllers.CourseController",
+    "Method": "CreateLessons",
+    "RelativePath": "api/Course/CreateLessons/{CourseId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CourseId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "LessonId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "VideoUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Duration",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CourseId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "videoFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LearnX_Server.Controllers.CourseController",
     "Method": "GetAllCourse",
     "RelativePath": "api/Course/get/allCourses",
     "HttpMethod": "GET",

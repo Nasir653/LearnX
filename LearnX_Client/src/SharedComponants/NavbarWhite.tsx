@@ -15,6 +15,9 @@ const NavbarWhite = () => {
   };
 
   return (
+    <div className="whiteNavbar-container">
+
+
     <nav className="navbar-white">
       <div onClick={() => navigate("/")} className="logo-white">LearnX</div>
       
@@ -42,7 +45,9 @@ const NavbarWhite = () => {
       <div className="menu-icon-white" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
-    </nav>
+      </nav>
+      
+      </div>
   );
 };
 

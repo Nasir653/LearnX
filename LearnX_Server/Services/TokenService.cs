@@ -14,7 +14,6 @@ namespace LearnX_Server
             _secretKey = configuration["Jwt:SecretKey"] ?? throw new ArgumentNullException("SecretKey is not configured.");
         }
 
-        // ✅ Create JWT Token (with GUID stored as string)
         public string CreateToken(string userId, string email, string username)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -28,13 +27,15 @@ namespace LearnX_Server
                     new Claim(ClaimTypes.Email, email),
                     new Claim(ClaimTypes.Name, username)
                 }),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
+
 
         // ✅ Verify JWT Token and Extract User ID (as GUID)
         public Guid VerifyTokenAndGetId(string token)
@@ -53,8 +54,7 @@ namespace LearnX_Server
                     ClockSkew = TimeSpan.Zero // Prevents extra allowed time for expired tokens
                 };
 
-                Console.WriteLine("Received Token: " + token);
-
+             
                 var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
 
                 if (validatedToken is not JwtSecurityToken jwtToken)
@@ -69,7 +69,7 @@ namespace LearnX_Server
                     throw new Exception("User ID claim not found in token.");
                 }
 
-                Console.WriteLine("Extracted User ID: " + userIdClaim.Value);
+          
 
                 // ✅ Convert User ID from String to Guid Safely
                 if (Guid.TryParse(userIdClaim.Value, out Guid userId))

@@ -130,32 +130,40 @@ namespace LearnX_Server.Controllers
 
                 if (string.IsNullOrEmpty(token))
                 {
-                    Console.WriteLine("🚨 No token found in cookies.");
                     return Unauthorized(new { message = "User is not authenticated." });
                 }
 
-                Console.WriteLine("🔹 Received Token: " + token);
+                Guid userId;
+                try
+                {
+                    userId = tokenService.VerifyTokenAndGetId(token);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("🚨 Token verification failed: " + ex.Message);
+                    return Unauthorized(new { message = "Please Login Again", error = ex.Message });
+                }
 
-                var userId = tokenService.VerifyTokenAndGetId(token);
-
-                Console.WriteLine("✅ Extracted User ID: " + userId);
-
-                // Check if userId is valid
                 if (userId == Guid.Empty)
                 {
                     Console.WriteLine("🚨 Extracted User ID is empty or invalid.");
-                    return Unauthorized(new { message = "Invalid token." });
+                    return Unauthorized(new { message = "Please Login Again" });
                 }
 
-                var user = await _dbContext.Users.FindAsync(userId);
+                
+                var user = await _dbContext.Users
+                    .Include(u => u.Courses) // Ensure courses are loaded
+                    .FirstOrDefaultAsync(u => u.UserId == userId);
 
                 if (user == null)
                 {
-                    Console.WriteLine("🚨 No user found in database for ID: " + userId);
+                    Console.WriteLine($"🚨 No user found for ID: {userId}");
                     return _message.ErrorMessage(404, "User Not Found");
                 }
 
-                Console.WriteLine("✅ User Found: " + user.Email);
+                // Ensure Courses is initialized
+                int courseCount = user.Courses?.Count ?? 0;
+                Console.WriteLine($"✅ User Found: {user.Email}, Courses Count: {courseCount}");
 
                 return _message.SuccessMessage("User Data", user);
             }
@@ -166,6 +174,7 @@ namespace LearnX_Server.Controllers
                 return _message.ErrorMessage(500, "Server Error");
             }
         }
+
 
 
         [HttpPost("Forget")]

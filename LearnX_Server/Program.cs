@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using LearnX_Server;
 using LearnX_Server.Data;
 using LearnX_Server.Interfaces;
@@ -34,6 +35,7 @@ builder.Services.AddCors(options =>
 
     });
 });
+
 
 builder.Services.AddSwaggerGen();
 var app = builder.Build();

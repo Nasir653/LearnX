@@ -1,0 +1,86 @@
+.courseDetailsContainer {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f4f4f9;
+}
+
+.courseCard {
+    width: 800px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.courseImage {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.courseTitle {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.courseDescription {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.courseInfo h3 {
+    color: #444;
+    margin: 10px 0;
+}
+
+.noImage {
+    text-align: center;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.enrollBtn {
+    padding: 12px 25px;
+    background: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.enrollBtn:hover {
+    background: #554ce7;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.addLesson {
+  
+    background: #f4f4f9;
+    border: 2px solid #6c63ff;
+    border-radius: 10px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

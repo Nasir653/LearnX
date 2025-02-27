@@ -32,20 +32,33 @@ namespace LearnX_Server.Controllers
                     return BadRequest(new { message = "Invalid course data or image." });
                 }
 
-                //var token = Request.Cookies["token"];
-                //if (string.IsNullOrEmpty(token))
-                //{
-                //    return Unauthorized(new { message = "User is not authenticated." });
+                var token = Request.Cookies["token"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return Unauthorized(new { message = "User is not authenticated." });
+                }
+
+                var userId = _tokenService.VerifyTokenAndGetId(token);
+
+                if (userId == Guid.Empty)
+                {
+                    return Unauthorized(new { message = "Invalid token." });
+                }
+
+
+                var findUser = await _dbContext.Users.FindAsync(userId);
+
+                if (findUser == null)
+                {
+                    return _message.ErrorMessage(404, "User Not Found");
+                }
+
+                //if (findUser.Role != "Instructor" || findUser.Role != "Admin") {
+
+                //    return _message.ErrorMessage(404, "Only Instructor or Admin Can Create the Courses");
+                
                 //}
 
-                //var userId = _tokenService.VerifyTokenAndGetId(token);
-
-                //if (userId == Guid.Empty)
-                //{
-                //    return Unauthorized(new { message = "Invalid token." });
-                //}
-
-                // Upload Image to Cloudinary (Ensure this method is `awaited`)
 
                 var imgUrl = await _cloudinary.UploadImageAsync(images);
 
@@ -54,16 +67,26 @@ namespace LearnX_Server.Controllers
                     CourseId = Guid.NewGuid(),
                     Title = courseModel.Title,
                     Description = courseModel.Description,
-                    Image = imgUrl, // Ensure `imgUrl` is correct
-                    //InstructorId = userId,
+                    Image = imgUrl, 
+                    InstructorId = userId,
                     Price = courseModel.Price,
                     Category = courseModel.Category,
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow
                 };
 
+
                 await _dbContext.Courses.AddAsync(newCourse);
                 await _dbContext.SaveChangesAsync();
+
+                if (findUser.Courses == null)
+                {
+                    findUser.Courses = new List<Course>(); // Initialize if null
+                }
+
+                findUser.Courses.Add(newCourse);
+                await _dbContext.SaveChangesAsync(); // Save changes to persist in the database
+
 
                 return Ok(new { message = "Course created successfully", courseId = newCourse.CourseId });
             }
@@ -106,7 +129,6 @@ namespace LearnX_Server.Controllers
 
 
         [HttpGet("get/CourseById/{CourseId}")]
-
         public async Task <IActionResult> CourseById( Guid CourseId)
         {
             try
@@ -128,6 +150,58 @@ namespace LearnX_Server.Controllers
                 return _message.ErrorMessage(500, "Server Error");
             }
         }
+
+        [HttpPost("CreateLessons/{CourseId}")]
+        public async Task<IActionResult> CreateLessons(Guid CourseId, [FromForm] LessonModel _lesson, IFormFile videoFile)
+        {
+            try
+            {
+                if (_lesson == null || videoFile == null)
+                {
+                    return _message.ErrorMessage(400, "Invalid Lesson Data or Video File");
+                }
+
+                var token = Request.Cookies["token"];
+                if (string.IsNullOrEmpty(token))
+                {
+                    return _message.ErrorMessage(401, "User is not authenticated");
+                }
+
+                var userId = _tokenService.VerifyTokenAndGetId(token);
+                if (userId == Guid.Empty)
+                {
+                    return _message.ErrorMessage(401, "Invalid Token");
+                }
+
+                var findCourse = await _dbContext.Courses.FindAsync(CourseId);
+                if (findCourse == null)
+                {
+                    return _message.ErrorMessage(404, "Course Not Found");
+                }
+
+                // Upload Video
+                var videoUrl = await _cloudinary.UploadVideoAsync(videoFile);
+
+                var newLesson = new Lesson
+                {
+                    LessonId = Guid.NewGuid(),
+                    Title = _lesson.Title,
+                    VideoUrl = videoUrl,
+                    Duration = _lesson.Duration ?? 0,
+                    CourseId = CourseId,
+                };
+
+                await _dbContext.Lessons.AddAsync(newLesson);
+                await _dbContext.SaveChangesAsync();
+
+                return _message.SuccessMessage("Lesson Created Successfully", newLesson);
+            }
+            catch (Exception ex)
+            {
+                return _message.ErrorMessage(500, ex.Message);
+            }
+        }
+
 
     }
 }

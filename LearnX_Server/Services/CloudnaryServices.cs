@@ -57,5 +57,32 @@ namespace LearnX_Server
 
             return uploadResult.SecureUrl.ToString();
         }
+
+
+        public async Task<string> UploadVideoAsync(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("File is invalid.");
+
+            using var stream = file.OpenReadStream();
+
+            var uploadParams = new VideoUploadParams
+            {
+                File = new FileDescription(file.FileName, stream),
+                UseFilename = true,
+                UniqueFilename = false,
+                Overwrite = true,
+               
+            };
+
+            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
+            if (uploadResult.StatusCode != System.Net.HttpStatusCode.OK)
+                throw new Exception("Video upload failed.");
+
+            return uploadResult.SecureUrl.ToString(); // Return the uploaded video URL
+        }
+
+
     }
 }
